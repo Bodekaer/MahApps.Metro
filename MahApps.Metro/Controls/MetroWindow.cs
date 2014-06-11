@@ -45,7 +45,8 @@ namespace MahApps.Metro.Controls
         public static readonly DependencyProperty ShowMinButtonProperty = DependencyProperty.Register("ShowMinButton", typeof(bool), typeof(MetroWindow), new PropertyMetadata(true));
         public static readonly DependencyProperty ShowMaxRestoreButtonProperty = DependencyProperty.Register("ShowMaxRestoreButton", typeof(bool), typeof(MetroWindow), new PropertyMetadata(true));
         public static readonly DependencyProperty ShowCloseButtonProperty = DependencyProperty.Register("ShowCloseButton", typeof(bool), typeof(MetroWindow), new PropertyMetadata(true));
-
+        public static readonly DependencyProperty ShowHelpButtonProperty = DependencyProperty.Register("ShowHelpButton", typeof(bool), typeof(MetroWindow), new PropertyMetadata(false));
+        
         public static readonly DependencyProperty TitlebarHeightProperty = DependencyProperty.Register("TitlebarHeight", typeof(int), typeof(MetroWindow), new PropertyMetadata(30, TitlebarHeightPropertyChangedCallback));
         public static readonly DependencyProperty TitleCapsProperty = DependencyProperty.Register("TitleCaps", typeof(bool), typeof(MetroWindow), new PropertyMetadata(true));
         public static readonly DependencyProperty SaveWindowPositionProperty = DependencyProperty.Register("SaveWindowPosition", typeof(bool), typeof(MetroWindow), new PropertyMetadata(false));
@@ -378,6 +379,19 @@ namespace MahApps.Metro.Controls
             get { return (bool)GetValue(ShowCloseButtonProperty); }
             set { SetValue(ShowCloseButtonProperty, value); }
         }
+
+
+        /// <summary>
+        /// Gets/sets if the close button is visible.
+        /// </summary>
+        public bool ShowHelpButton
+        {
+            get { return (bool)GetValue(ShowHelpButtonProperty); }
+            set { SetValue(ShowHelpButtonProperty, value); }
+        }
+
+        public ICommand ShowHelpCommand { get; set; }
+
 
         /// <summary>
         /// Gets/sets the TitleBar's height.
